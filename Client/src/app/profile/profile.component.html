@@ -1,0 +1,105 @@
+<div class="parent" style="margin-top: 90px">
+  <div class="card text-center" style="border-radius: 15px">
+    <div style="display: grid; place-items: center; padding-top: 30px">
+      <img id="avatar" src="{{ user.photoUrl || '../../assets/user.png' }}" />
+    </div>
+    <div
+      class="card body"
+      style="
+        display: grid;
+        place-items: center;
+        border: none;
+        padding-left: 40px;
+        padding-right: 40px;
+      "
+    >
+      <p id="name">{{ user.name }} {{ user.surname }} ({{ user.userName }})</p>
+      <div class="card-parent" style="margin-top: 30px">
+        <!--User-info-->
+        <div
+          class="card"
+          style="
+            max-width: 400px;
+            max-height: 250px;
+            background-color: #212121;
+            padding: 30px;
+          "
+        >
+          <div style="text-align: left">
+            <p style="font-weight: bold">
+              <i class="fa fa-child mr-2"></i>O mnie
+            </p>
+            <p>Wiek: {{ user.age }}</p>
+            <p>Zamieszkanie: {{ user.location }}</p>
+            <hr style="border-top-width: 2px; border-color: #e2e2e2" />
+            <p
+              style="font-weight: bold; cursor: pointer"
+              (click)="loadFriends(friendList)"
+            >
+              <i class="fa fa-users mr-2"></i>Lista znajomych
+            </p>
+            <button
+              *ngIf="!isFriendOfMineSwitch && !isMyAccount()"
+              class="btn btn-success"
+              (click)="sendInvitation()"
+            >
+              Dodaj do znajomych
+            </button>
+            <button
+              *ngIf="isFriendOfMineSwitch && !isMyAccount()"
+              class="btn btn-warning"
+              (click)="deleteFriend()"
+            >
+              Usuń ze znajomych
+            </button>
+          </div>
+        </div>
+
+        <!--Posts-->
+        <div
+          class="card"
+          style="max-width: 600px; background-color: #212121; padding: 30px"
+        >
+          <div *ngFor="let post of posts">
+            <app-post [post]="post" (postDeleted)="loadPosts()"></app-post>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Lista zaproszeń-->
+<ng-template #friendList>
+  <div class="modal-header">
+    <div class="container text-center">
+      <p style="font-weight: bold; font-size: x-large; color: #212121">
+        Lista znajomych {{ user.name }}
+      </p>
+    </div>
+  </div>
+  <div
+    class="modal-body"
+    style="max-height: calc(100vh - 400px); overflow-y: auto"
+  >
+    <div class="mb-4" *ngFor="let friend of friends">
+      <div
+        id="item"
+        (click)="modalRef.hide()"
+        [routerLink]="['/users/', friend.userId]"
+      >
+        <img
+          id="user-image"
+          style="cursor: pointer"
+          src="{{ friend.photoUrl || '../../assets/user.png' }}"
+          alt=""
+        />
+        <div id="name">
+          <p style="color: #212121; font-size: medium">
+            {{ friend.name }} {{ friend.surname }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,162 @@
+<nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark bg-mine">
+  <div
+    class="navbar-brand h-100 m-0"
+    [routerLink]="['/home']"
+    style="cursor: pointer"
+  >
+    <img src="../../assets/logo.png" />
+  </div>
+  <a
+    class="navbar-brand m-0"
+    style="color: #0074f9; font-weight: bold; font-size: xx-large"
+    [routerLink]="['/home']"
+    >watsbook</a
+  >
+
+  <div
+    class="collapse navbar-collapse ml-5"
+    id="navbarSupportedContent"
+    *ngIf="authService.loggedIn()"
+  >
+    <ul class="navbar-nav mr-auto">
+      <form class="form-inline my-2 my-lg-0">
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          style="background-color: #636363; border: none; border-radius: 15px;"
+          placeholder="Wyszukaj..."
+          aria-label="Search"
+          (keyup)="onKey($event)"
+        />
+        <button
+        style="border-radius: 15px;"
+          class="btn btn-success my-2 my-sm-0"
+          type="submit"
+          (click)="openSearchedUsers(userSearch)"
+        >
+          Wyszukaj
+        </button>
+      </form>
+    </ul>
+    <!--<div style="cursor: pointer">
+      <a class="nav-link nav-item mr-sm-2"
+        ><i class="fa fa-paper-plane mr-3"></i>Wiadomości</a
+      >
+    </div>-->
+    <div
+      style="cursor: pointer"
+      (click)="loadFriendRequests(friendRequestsTemp)"
+    >
+      <a class="nav-link nav-item mr-sm-2"
+        ><i class="fa fa-user-plus mr-3"></i>Zaproszenia</a
+      >
+    </div>
+    <a
+      class="nav-link nav-item mr-sm-2"
+      style="cursor: pointer"
+      [routerLink]="['/users/', authService.currentUser.id]"
+      >{{ authService.currentUser.userName }}</a
+    >
+    <div class="my-2 my-lg-0 mr-1" style="cursor: pointer">
+      <img
+        id="avatar"
+        src="{{ photoUrl || '../../assets/user.png'}}"
+        alt=""
+        [routerLink]="['/users/', authService.currentUser.id]"
+      />
+    </div>
+
+    <!--Lista do zarządzania profilem (edycja, login)-->
+    <div class="btn-group" style="align-items: center" dropdown>
+      <button
+        dropdownToggle
+        type="button"
+        class="btn btn-success dropdown-toggle"
+        aria-controls="dropdown-animated"
+      ></button>
+      <ul
+        id="dropdown-menu"
+        *dropdownMenu
+        class="dropdown-menu dropdown-menu-right"
+        role="menu"
+        aria-labelledby="button-animated"
+      >
+        <li role="menuitem">
+          <a class="dropdown-item" [routerLink]="['/edit']">Edytuj profil</a>
+        </li>
+        <li role="menuitem">
+          <a class="dropdown-item" (click)="logout()">Wyloguj się</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!--Wyszukiwanie znajomych-->
+<ng-template #userSearch>
+  <div class="modal-header">
+    <div class="container text-center"><p>Rezultat wyszukiwania</p></div>
+  </div>
+  <div
+    class="modal-body"
+    style="max-height: calc(100vh - 400px); overflow-y: auto"
+  >
+    <div class="mb-4" *ngFor="let user of searchedUsers">
+      <div id="item" (click)="modalRef.hide()" [routerLink]="['/users/', user.id]">
+        <img
+          id="user-image" 
+          style="cursor: pointer"
+          src="{{ user.photoUrl || '../../assets/user.png' }}"
+          alt=""
+        />
+        <div id="name">
+          <p>
+            {{ user.name }} {{ user.surname
+            }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!--Lista zaproszeń-->
+<ng-template #friendRequestsTemp>
+  <div class="modal-header">
+    <div class="container text-center"><p>Twoje zaproszenia</p></div>
+  </div>
+  <div
+    class="modal-body"
+    style="max-height: calc(100vh - 400px); overflow-y: auto"
+  >
+    <div class="mb-4" *ngFor="let request of friendRequests">
+      <div
+        id="item"
+        (click)="modalRef.hide()"
+        [routerLink]="['/users/', request.userId]"
+      >
+        <img
+          id="user-image"
+          style="cursor: pointer"
+          src="{{ request.photoUrl || '../../assets/user.png' }}"
+          alt=""
+        />
+        <div id="name">
+          <p>
+            {{ request.name }} {{ request.surname
+            }}<i
+              class="fa fa-user-plus ml-3"
+              style="margin: 0; padding: 0; cursor: pointer; color: #0074f9"
+              (click)="acceptRequest(request.userId)"
+            ></i
+            ><i
+              class="fa fa-trash ml-3"
+              style="margin: 0; padding: 0; cursor: pointer; color: #970934"
+              (click)="declineRequest(request.userId)"
+            ></i>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

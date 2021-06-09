@@ -1,0 +1,7 @@
+<div class="card" style="margin-top: 80px;">
+  <input class="form-control mb-3 mt-4" type="text" [(ngModel)]="model.username" placeholder="Nazwa użytkownika" />
+  <input class="form-control mb-3" type="password" [(ngModel)]="model.password" placeholder="Hasło"/>
+  <button class="btn btn-success w-100 blue" (click)="login()"> Zaloguj się </button>
+  <hr class="w-100" style="border-top: 2 px solid; border-color: white;">
+  <button class="btn btn-success w-100 mb-4" [routerLink]="['/register']"> Utwórz konto</button>
+</div>

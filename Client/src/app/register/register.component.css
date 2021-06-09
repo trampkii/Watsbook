@@ -1,0 +1,8 @@
+.card {
+    padding: 10%;
+    display: grid;
+    place-items: center;
+    background-color: #2D2D2D;
+    border-radius: 20px;
+    min-width: 330px;
+}

@@ -1,0 +1,34 @@
+<div class="parent" style="margin-top: 90px;">
+  <div class="card parent" style="width: 500px; ">
+    <div style="display: flex; justify-items: center; margin-left: 10px">
+      <img class="rounded-avatar" src="{{ photoUrl || '../../assets/user.png' }}" />
+      <input
+        class="ml-2 w-100"
+        type="text"
+        style="
+          background-color: #636363;
+          width: fit-content;
+          padding-left: 5%;
+          border-radius: 15px;
+          color: #212121;
+          border: none;
+        "
+        (keyup)="onKey($event)"
+        placeholder="O czym myślisz, {{ authService.currentUser.name }}?"
+        aria-label="Search"
+      />
+    </div>
+    <hr style="border-top-style: solid; border-top-width: 2px" />
+    <span style="margin-left: 10px; color: yellowgreen; cursor: pointer;" >
+      <i class="fa fa-2x fa-file-photo-o mr-2"></i>
+      <input style="display: inline-flex; max-width: 300px;"  type="file"
+      ng2FileSelect
+      [uploader]="uploader">
+    </span>
+
+   
+  </div>
+  <div *ngFor="let post of friendPosts" >
+    <app-post [post]="post"></app-post>
+  </div>
+</div>

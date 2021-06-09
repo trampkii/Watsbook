@@ -1,0 +1,20 @@
+<div style="display: grid; place-items: center; margin-top: 80px">
+  <img
+    src="{{ photoUrl || '../../assets/user.png' }}"
+    style="border-radius: 15px; width: 300px; height: 300px"
+  />
+  <hr style="border-top-style: solid; border-top-width: 2px" />
+  <span style="margin-left: 10px; color: yellowgreen; cursor: pointer;" >
+    <i class="fa fa-2x fa-file-photo-o mr-2"></i>
+    <input style="display: inline-flex; max-width: 300px;"  type="file"
+    ng2FileSelect
+    [uploader]="uploader">
+  </span>
+  <div
+  class="modal-body text-center"
+  style="margin-bottom: 40px"
+  *ngIf="uploader?.queue?.length"
+>
+ <button class="btn btn-success" style="border: 15px;" (click)="uploadPost()">Zmień</button>
+</div>
+</div>

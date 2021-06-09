@@ -1,0 +1,89 @@
+.bg-mine {
+    background-color: #191919;
+    background-image: linear-gradient(315deg, #191919 0%, #191919 74%);
+}
+
+#navbar {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+img {
+    border-radius: 15px;
+    height: 60%;
+    width: 60%;
+}
+
+#avatar {
+    width: 50px;
+    height: 50px;
+    
+}
+
+a {
+    font-size: large;
+    cursor: pointer;
+    color: whitesmoke
+}
+
+#dropdown-menu {
+    background-color: #848484;
+    
+}
+
+.dropdown-item{
+    color: #212121;
+}
+
+.dropdown-item:hover {
+    background-color: #636363;
+}
+
+#user-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    float: left;
+    display: inline-flex start;
+}
+
+#name {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+p {
+    font-weight: bold;
+    color: #212121;
+}
+#item {
+    padding: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#item:hover {
+    background-color: #636363;
+}
+#item:focus {
+    outline-style: solid;
+    outline-width: 1px;
+}
+.modal-body{
+    background-color: #848484;
+}
+
+.modal-header{
+    background-color: #848484;
+}
+
+::placeholder {
+    color: #212121;
+  }
+
+  #navbar {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 5; 
+  }

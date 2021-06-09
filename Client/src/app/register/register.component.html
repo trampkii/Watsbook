@@ -1,0 +1,179 @@
+<div class="card" style="margin-top: 80px;">
+    <form #editForm="ngForm" id="form-login" [formGroup]="registerForm" class="text-center mb-4 mt-4" (ngSubmit)="register()" >
+        <div class="form-group">
+            <input
+              type="text"
+              [ngClass]="{
+                'is-invalid':
+                  registerForm.get('username').errors &&
+                  registerForm.get('username').touched
+              }"
+              class="form-control"
+              formControlName="username"
+              placeholder="Nazwa użytkownika"
+              autofocus
+            />
+            <div class="invalid-feedback">Wprowadź nazwę użytkownika</div>
+          </div>
+
+          <div class="form-group">
+            <input
+              [ngClass]="{
+                'is-invalid':
+                  registerForm.get('name').errors && registerForm.get('name').touched
+              }"
+              class="form-control"
+              placeholder="Imię"
+              formControlName="name"
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                registerForm.get('name').touched &&
+                registerForm.get('name').hasError('required')
+              "
+            >
+              Wprowadź imię
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <input
+              [ngClass]="{
+                'is-invalid':
+                  registerForm.get('surname').errors &&
+                  registerForm.get('surname').touched
+              }"
+              class="form-control"
+              placeholder="Nazwisko"
+              formControlName="surname"
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                registerForm.get('surname').touched &&
+                registerForm.get('surname').hasError('required')
+              "
+            >
+              Wprowadź nawisko
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input
+              [ngClass]="{
+                'is-invalid':
+                  registerForm.get('dateOfBirth').errors &&
+                  registerForm.get('dateOfBirth').touched
+              }"
+              class="form-control"
+              placeholder="Data urodzenia"
+              formControlName="dateOfBirth"
+              type="text"
+              bsDatepicker
+              [bsConfig]="bsConfig"
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                registerForm.get('dateOfBirth').touched &&
+                registerForm.get('dateOfBirth').hasError('required')
+              "
+            >
+              Wprowadź datę urodzenia
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input
+              [ngClass]="{
+                'is-invalid':
+                  registerForm.get('location').errors &&
+                  registerForm.get('location').touched
+              }"
+              class="form-control"
+              placeholder="Lokalizacja"
+              formControlName="location"
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                registerForm.get('location').touched &&
+                registerForm.get('location').hasError('required')
+              "
+            >
+              Wprowadź lokalizację
+            </div>
+          </div>
+      
+          <!--Hasło-->
+          <div class="form-group">
+            <input
+              type="password"
+              [ngClass]="{
+                'is-invalid':
+                  registerForm.get('password').errors &&
+                  registerForm.get('password').touched
+              }"
+              class="form-control"
+              formControlName="password"
+              placeholder="Hasło"
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                registerForm.get('password').hasError('required') &&
+                registerForm.get('password').touched
+              "
+            >
+              Hasło jest wymagane
+            </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                registerForm.get('password').hasError('minlength') &&
+                registerForm.get('password').touched
+              "
+            >
+              Hasło musi mieć minimum 6 znaków
+            </div>
+          </div>
+      
+          <div class="form-group">
+            <input
+              type="password"
+              [ngClass]="{
+                'is-invalid':
+                  (registerForm.get('confirmPassword').errors &&
+                    registerForm.get('confirmPassword').touched) ||
+                  (registerForm.get('confirmPassword').touched &&
+                    registerForm.hasError('mismatch'))
+              }"
+              class="form-control"
+              formControlName="confirmPassword"
+              placeholder="Potwierdź hasło"
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                registerForm.get('confirmPassword').hasError('required') &&
+                registerForm.get('confirmPassword').touched
+              "
+            >
+              Hasło jest wymagane
+            </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                registerForm.hasError('mismatch') &&
+                registerForm.get('confirmPassword').touched
+              "
+            >
+              Hasła nie są takie same
+            </div>
+          </div>
+          <button [disabled]="!registerForm.valid" registerForm.valid = "!registerForm.valid" class="btn btn-success w-100" >Utwórz konto</button>
+    </form>
+</div>
+
+

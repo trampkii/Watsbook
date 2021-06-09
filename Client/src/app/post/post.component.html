@@ -1,0 +1,90 @@
+<div class="card mt-2">
+  <div class="col" style="padding: 25px">
+    
+    <!--Three dots-->
+    <div
+    *ngIf="isPostMine()"
+    (click)="deletePost()"
+      style="
+        display: flex;
+        justify-content: flex-end;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+      "
+    >
+      <i  class="fa fa-lg fa-trash"></i>
+    </div>
+    <div
+      [routerLink]="['/users/', post.userId]"
+      style="
+        display: flex;
+        justify-items: center;
+        justify-content: flex-start;
+        padding: 0;
+        cursor: pointer;
+        margin-left: 10px;
+      "
+    >
+      <img
+        class="rounded-avatar"
+        src="{{ post.userPhotoUrl || '../../assets/user.png' }}"
+      />
+      <div style="display: inline-block; margin-left: 10px;">
+        <p class="user-name" style="margin-bottom: 0; display: flex;">
+          {{ post.name }} {{ post.surname }}
+        </p>
+        <p class="post-date" style="margin-bottom: 0">
+          {{ post.creationDate | date: "dd MMMM yyyy" }}
+        </p>
+      </div>
+    </div>
+
+    <!--Photo and content section-->
+  </div>
+  <hr style="border-top-style: solid; border-top-width: 2px" />
+  <div style="padding-left: 25px; padding-right: 25px; max-width: 550px">
+    <p style="word-wrap: break-word; display: flex;">{{ post.content }}</p>
+  </div>
+
+  <img *ngIf="post.photoUrl" src="{{ post.photoUrl }}" />
+
+  <!--Likes count-->
+  <div
+    style="
+      padding-left: 25px;
+      padding-right: 25px;
+      margin-top: 20px;
+      display: flex;
+      justify-items: center;
+    "
+  >
+    <i style="display: inline" class="fa fa-lg fa-thumbs-up mr-3"></i>
+    <p style="display: inline" style="font-size: medium">{{likes}} polubień</p>
+  </div>
+
+  <hr style="border-top-style: solid; border-top-width: 2px; margin-top: 0" />
+
+  <div
+    style="
+      cursor: pointer;
+      padding-left: 25px;
+      padding-right: 25px;
+      padding-bottom: 25px;
+      display: flex;
+      justify-items: center;
+    "
+  >
+    <span *ngIf="!isLiked" style="display: inline-flex; cursor: pointer;" (click)="sendLike()">
+      <i style="display: inline" class="fa fa-2x fa-thumbs-o-up mr-3" ></i>
+      <p style="display: inline" style="font-size: large" >Lubię to!</p>
+    </span>
+    
+
+    <span *ngIf="isLiked" style="color: #0074f9; display: inline-flex; cursor: pointer;" (click)="sendLike()">
+      <i style="display: inline" class="fa fa-2x fa-thumbs-up mr-3" ></i>
+      <p style="display: inline" style="font-size: large" >Nie lubię</p>
+    </span> 
+    
+  </div>
+</div>

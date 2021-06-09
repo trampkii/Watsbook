@@ -1,0 +1,33 @@
+.card {
+  padding: 0%;
+  background-color: #2d2d2d;
+  width: 100%;
+  border: black;
+  border-width: 2px;
+}
+
+img {
+  width: 100%;
+  border: none;
+}
+
+.rounded-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  display: inline-flex;
+  margin:0;
+}
+
+.user-name {
+  font-weight: bolder;
+}
+
+.post-date {
+  font-weight: lighter;
+}
+
+.card {
+  border-radius: 15px;
+}
+

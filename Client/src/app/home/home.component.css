@@ -1,0 +1,19 @@
+.card {
+    margin: 0;
+    border-radius: 20px;
+    background-color: #2d2d2d;   
+    border: none; 
+    padding: 25px;
+}
+
+
+.rounded-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    display: inline;
+  }
+
+  ::placeholder {
+      color: #212121;
+  }

@@ -1,0 +1,26 @@
+.card {
+    padding: 10%;
+    display: grid;
+    place-items: center;
+    background-color: #2D2D2D;
+    border-radius: 20px;
+    min-width: 330px;
+}
+
+.blue {
+    background-color: #0074F9;
+    border-color: #0074F9;
+    outline: none;
+}
+
+.blue:focus {
+    background-color: #0055B7;
+    border-color: #0055B7;
+}
+
+.blue:hover {
+    background-color: #0055B7;
+    border-color: #0055B7;
+}
+
+
