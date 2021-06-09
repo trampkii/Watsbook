@@ -15,6 +15,7 @@ namespace API
         {
             CreateHostBuilder(args).Build().Run();
         }
+        // projekt
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
