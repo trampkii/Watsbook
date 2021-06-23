@@ -1,0 +1,92 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+<ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background_login"/>
+
+    
+
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/style_top_rounded_bg"
+        android:layout_width="match_parent"
+        android:padding="20dp"
+        android:layout_height="500dp">
+
+        <!--Welcome textViews-->
+        <TextView
+            android:layout_marginTop="20dp"
+            android:id="@+id/welcomeTextView"
+            android:layout_centerHorizontal="true"
+            android:text="Witaj ponownie"
+            android:layout_alignParentTop="true"
+            android:textSize="26sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/welcomeDescrTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/welcomeTextView"
+            android:text="Watsbook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!--Login credentials container-->
+        <LinearLayout
+            android:id="@+id/tempLL"
+            android:layout_marginTop="20dp"
+            android:padding="20dp"
+            android:layout_below="@+id/welcomeDescrTextView"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/userNameET"
+                android:hint="Nazwa użytkownika"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
+            <EditText
+                android:layout_marginTop="20dp"
+                android:id="@+id/passwordET"
+                android:hint="Hasło"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
+        </LinearLayout>
+
+        <!--Forgot password text view-->
+        <TextView
+            android:id="@+id/registerTV"
+            android:textColor="@android:color/white"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tempLL"
+            android:text="Utwórz konto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:layout_marginBottom="70dp"
+            android:id="@+id/loginBtn"
+            android:text="Zaloguj"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+        
+     </RelativeLayout>
+
+
+    
+</RelativeLayout>

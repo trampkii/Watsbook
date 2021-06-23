@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2c3e50</color>
+    <color name="colorPrimaryDark">#1B3147</color>
+    <color name="colorAccent">#3498db</color>
+    <color name="colorLightAsh">#e2e2e2</color>
+    <color name="colorAsh">#898989</color>
+    <color name="colorMainDark">#191a1b</color>
+    <color name="colorSecondGradient">#272A26</color>
+    <color name="colorMainDark40Transparent">#660b0b0b</color>
+    <color name="colorSpinnerMediumGray">#262626</color>
+    <color name="colorBloodyRed">#C90000</color>
+    <color name="colorBloodyRedDark">#690101</color>
+    <color name="colorKhaki">#0074f9</color>
+    <color name="colorDarkKhaki">#000fff</color>
+    <color name="colorKhakiSecond">#000fff</color>
+    <color name="colorGray">#6a6a6a</color>
+    <color name="colorDarkGray">#585858</color>
+    <color name="colorDarkGrayTransparent">#A6000000</color>
+    <color name="colorEditTextGray">#3a3b3c</color>
+    <color name="colorEditTextGrayPressed">#2c2d2e</color>
+</resources>

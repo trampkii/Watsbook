@@ -1,0 +1,87 @@
+﻿<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
+    android:background="@color/colorAccent"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+        <!--Welcome textViews-->
+        <TextView
+            android:layout_marginTop="20dp"
+            android:id="@+id/welcomeTextView"
+            android:layout_centerHorizontal="true"
+            android:text="Utwórz konto"
+            android:layout_alignParentTop="true"
+            android:textSize="26sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!--Login credentials container-->
+        <LinearLayout
+            android:id="@+id/tempLL"
+            android:padding="20dp"
+            android:layout_below="@+id/welcomeTextView"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/userNameET"
+                android:hint="Nazwa użytkownika"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
+            <EditText
+                android:layout_marginTop="20dp"
+                android:id="@+id/firstNameET"
+                android:hint="Imię"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
+            <EditText
+                android:layout_marginTop="20dp"
+                android:id="@+id/lastNameET"
+                android:hint="Nazwisko"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
+            <EditText
+                android:layout_marginTop="20dp"
+                android:id="@+id/cityET"
+                android:hint="Lokalizacja"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
+            <EditText
+                android:layout_marginTop="20dp"
+                android:id="@+id/passwordET"
+                android:hint="Hasło"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
+            <EditText
+                android:layout_marginTop="20dp"
+                android:id="@+id/confirmPasswordET"
+                android:hint="Powierdź hasło"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
+        </LinearLayout>
+
+        <!--Forgot password text view-->
+
+        <Button
+            android:layout_marginBottom="70dp"
+            android:id="@+id/registerBtn"
+            android:text="Utworz konto"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+        
+     </RelativeLayout>

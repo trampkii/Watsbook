@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorEditTextGray"
+    >
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/imageView1"
+            android:src="@drawable/logo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+        <TextView
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imageView1"
+            android:text="w a t s b o o k"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:id="@+id/logout"
+            android:src="@drawable/logout"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:padding="16dp"
+        android:layout_marginVertical="10dp"
+        android:layout_below="@+id/header"
+        android:background="@drawable/style_rounded_bg_gray"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:inputType="text"
+            android:id="@+id/content"
+            android:hint="O czym myślisz?"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+        <ImageView
+            android:layout_marginVertical="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder"
+            android:id="@+id/attached"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+         <Button
+            android:id="@+id/addBtn"
+            android:text="Dodaj"          
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/postsRV"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/ll"
+        android:layout_above="@+id/bottomBarRL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:id="@+id/bottomBarRL"
+        android:padding="12dp"
+        android:backgroundTint="@color/colorAccent"
+        android:background="@drawable/style_top_rounded_bg"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <ImageView
+            android:id="@+id/invitationsIV"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/invitations"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <ImageView
+            android:id="@+id/searchIV"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/search"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <Refractored.Controls.CircleImageView
+            android:id="@+id/userIV"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/user"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+    </RelativeLayout>
+</RelativeLayout>
